@@ -43,10 +43,6 @@ if (!empty($_POST)) {
 
             $listeRestos = getRestosByAdresse($voieAdrR, $cpR, $villeR);
             break;
-
-        default:
-            // Critère par défaut
-            break;
     }
 }
 
