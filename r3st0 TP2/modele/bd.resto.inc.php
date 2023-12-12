@@ -10,16 +10,16 @@ function getRestoByIdR($idR) {
 
         $req->execute();
 
-        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        $listeRestos = $req->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
     }
-    return $resultat;
+    return $listeRestos;
 }
 
 function getRestos() {
-    $resultat = array();
+    $listeRestos = array();
 
     try {
         $cnx = connexionPDO();
@@ -28,18 +28,18 @@ function getRestos() {
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
         while ($ligne) {
-            $resultat[] = $ligne;
+            $listeRestos[] = $ligne;
             $ligne = $req->fetch(PDO::FETCH_ASSOC);
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
     }
-    return $resultat;
+    return $listeRestos;
 }
 
 function getRestosByNomR($nomR) {
-    $resultat = array();
+    $listeRestos = array();
 
     try {
         $cnx = connexionPDO();
@@ -50,18 +50,18 @@ function getRestosByNomR($nomR) {
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
         while ($ligne) {
-            $resultat[] = $ligne;
+            $listeRestos[] = $ligne;
             $ligne = $req->fetch(PDO::FETCH_ASSOC);
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
     }
-    return $resultat;
+    return $listeRestos;
 }
 
 function getRestosByAdresse($voieAdrR, $cpR, $villeR) {
-    $resultat = array();
+    $listeRestos = array();
 
     try {
         $cnx = connexionPDO();
@@ -73,14 +73,14 @@ function getRestosByAdresse($voieAdrR, $cpR, $villeR) {
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
         while ($ligne) {
-            $resultat[] = $ligne;
+            $listeRestos[] = $ligne;
             $ligne = $req->fetch(PDO::FETCH_ASSOC);
         }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
     }
-    return $resultat;
+    return $listeRestos;
 }
 
 

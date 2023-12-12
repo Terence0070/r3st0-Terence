@@ -17,7 +17,7 @@ if (isset($_GET["critere"])) {
 }
 // recuperation des donnees GET, POST, et SESSION
 // recherche par nom
-$nomR = $_POST['nomR'];
+$nomR = "";
 // recherche par adresse
 $voieAdrR = "";
 $cpR = "";
@@ -29,21 +29,19 @@ if (!empty($_POST)) {
     switch ($critere) {
         case 'nom':
             // Recherche par nom
-            $nomR = isset($_POST['nomR']) ? $_POST['nomR'] : '';
+            $nomR = $_POST['nomR'];
             $critere = "nom";
-            // var_dump($_POST, $nomR);
-            // die();
-            $resultat = print_r(getRestosByNomR($nomR));
+            $listeRestos = getRestosByNomR($nomR);
             break;
 
         case 'adresse':
             // Recherche par adresse
-            $voieAdrR = isset($_POST['voieAdrR']) ? $_POST['voieAdrR'] : '';
-            $cpR = isset($_POST['cpR']) ? $_POST['cpR'] : '';
-            $villeR = isset($_POST['villeR']) ? $_POST['villeR'] : '';
+            $voieAdrR = $_POST['voieAdrR'];
+            $cpR = $_POST['cpR'];
+            $villeR = $_POST['villeR'];
             $critere = "adresse";
 
-            $resultat = getRestosByAdresse($voieAdrR, $cpR, $villeR);
+            $listeRestos = getRestosByAdresse($voieAdrR, $cpR, $villeR);
             break;
 
         default:
@@ -58,6 +56,7 @@ if (!empty($_POST)) {
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Recherche d'un restaurant";
 include "$racine/vue/entete.html.php";
+include "$racine/vue/vueRechercheResto.php";
 include "$racine/vue/vueResultRecherche.php";
 include "$racine/vue/pied.html.php";
 ?>

@@ -13,6 +13,6 @@ else{
 $fichier = controleurPrincipal($action);
 include "$racine/controleur/$fichier";
 
-echo $fichier;
+// echo $fichier;
 ?>
      
