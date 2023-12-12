@@ -24,7 +24,6 @@ $cpR = "";
 $villeR = "";
 
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-// Si on provient du formulaire de recherche : $critere indique le type de recherche à effectuer
 if (!empty($_POST)) {
     switch ($critere) {
         case 'nom':
