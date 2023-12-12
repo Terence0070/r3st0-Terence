@@ -30,6 +30,7 @@ if (!empty($_POST)) {
             // Recherche par nom
             $nomR = $_POST['nomR'];
             $critere = "nom";
+            
             $listeRestos = getRestosByNomR($nomR);
             break;
 
