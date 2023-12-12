@@ -27,8 +27,7 @@ if (!isset($_POST["mailU"]) || !isset($_POST["mdpU"])) {
     if ($util && is_array($util)) {
         $mdpBD = $util["mdpU"];
 
-        if (trim($mdpBD) == trim(crypt($mdpU, $mdpBD))) {
-            // Le mot de passe est correct, effectuer les actions de connexion
+        if (trim($mdpBD) == trim(crypt($mdpU, $mdpBD))) { // Une alternative à htmlspecialchars que je préfère pour les connexions
             $_SESSION["mailU"] = $mailU;
             $_SESSION["mdpU"] = $mdpBD;
 
@@ -37,12 +36,13 @@ if (!isset($_POST["mailU"]) || !isset($_POST["mdpU"])) {
             include "$racine/vue/entete.html.php";
             include "$racine/vue/vueConfirmationAuth.php"; // Message qui dit que la connexion est réussie
             include "$racine/vue/pied.html.php";
-            exit(); // Arrêter l'exécution du script après affichage de la confirmation
+            exit();
         }
     }
 
     // La connexion a échoué, afficher à nouveau le formulaire d'authentification
     $titre = "Authentification";
+    // echo "Veuillez retenter, la connexion a échoué";
     include "$racine/vue/entete.html.php";
     include "$racine/vue/vueAuthentification.php"; // On doit recommencer.
     include "$racine/vue/pied.html.php";
