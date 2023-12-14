@@ -13,11 +13,9 @@ les restaurants que j'aime : <br>
 <hr>
 les types de cuisine que j'aime : 
 <ul id="tagFood">		
-    <li class="tag"><span class="tag">#</span>sud ouest</li>
-    <li class="tag"><span class="tag">#</span>viande</li>
-    <li class="tag"><span class="tag">#</span>grillade</li>
+    <?php for ($j = 0; $j < count($mesTypeCuisineAimes); $j++) { ?>
+        <li class="tag"><span class="tag">#</span><?= $mesTypeCuisineAimes[$j]["libelleTC"] ?></li>
+    <?php } ?>
 </ul>
 <hr>
 <a href="./?action=deconnexion">se deconnecter</a>
-
-
